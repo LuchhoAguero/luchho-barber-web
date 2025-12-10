@@ -1,0 +1,107 @@
+@import "/src/styles/main";
+
+.contactContainer {
+  @include glass-effect; // Fondo transparente y blur
+  border-radius: $border-radius-lg;
+
+  // Dimensiones Desktop
+  padding: 2rem 2.5rem;
+  max-width: 900px;
+  width: 90%;
+
+  // Sombra exterior para despegarlo del fondo
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  // --- Tablet (Ajustar márgenes) ---
+  @media (max-width: 1024px) {
+    width: 85%;
+    padding: 2rem;
+  }
+
+  // --- Mobile ---
+  @media (max-width: 480px) {
+    width: 95%;
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 20px; // Espacio para scroll
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @media (max-width: 480px) {
+    margin-bottom: 1.5rem;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $color-text-primary;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+
+    // Gradiente simple para "TURNO AHORA"
+    .highlight {
+      display: block;
+      @include text-gradient($color-text-primary, $color-accent);
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .subtitle {
+    color: $color-text-secondary;
+    font-size: 0.95rem;
+  }
+}
+
+.ctaWrapper {
+  @include flex-center;
+  margin-bottom: 2rem;
+  position: relative;
+
+  // Efecto de brillo detrás del botón
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 50%;
+    background: rgba($color-accent, 0.3);
+    filter: blur(40px);
+    z-index: 0;
+  }
+
+  // El botón debe estar encima del brillo
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.infoGrid {
+  display: grid;
+  // Desktop: 2 Columnas
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  // --- Tablet Portrait (Cambio a 1 columna) ---
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  // --- Mobile ---
+  @media (max-width: 480px) {
+    gap: 1.2rem;
+    padding: 0;
+  }
+}

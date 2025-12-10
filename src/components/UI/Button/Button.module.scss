@@ -1,0 +1,40 @@
+@import "/src/styles/main";
+
+.uiButton {
+  @include flex-center;
+  gap: 10px;
+
+  border: none;
+  padding: 15px 40px;
+  border-radius: $border-radius-round;
+
+  // Gradiente del botón
+  background: linear-gradient(135deg, $color-accent, $color-accent-dark);
+  box-shadow: 0 4px 15px rgba($color-accent, 0.4);
+
+  color: #000; // Negro para contraste
+  font-family: $font-family-base;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba($color-accent, 0.6);
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  .iconWrapper {
+    display: flex;
+    font-size: 1.3rem;
+  }
+
+  // --- Mobile ---
+  @media (max-width: 480px) {
+    width: 100%; // Botón ancho completo en celular
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,77 @@
+@import '/src/styles/main';
+
+.orchestratorContainer {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; // Fix para móviles modernos
+  position: relative;
+  overflow: hidden;
+}
+
+.centerContent {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  
+  // Espaciado entre Título y Tarjeta
+  gap: 1.5rem;
+
+  // Ajuste Mobile
+  @media (max-width: 480px) {
+    gap: 0.8rem;
+    padding-top: 20px;
+  }
+}
+
+.brandTitle {
+  font-family: $font-family-brand;
+  font-size: 4rem; // Desktop
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  text-align: center;
+
+  // --- Tablet Landscape (iPad Pro) ---
+  @media (max-width: 1024px) {
+    font-size: 3.2rem;
+    letter-spacing: 3px;
+  }
+
+  // --- Tablet Portrait (iPad Mini) ---
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+    padding: 0 1rem; // Evita que toque los bordes
+  }
+
+  // --- Mobile ---
+  @media (max-width: 480px) {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    line-height: 1.1;
+  }
+}
+
+.goldText {
+  // Gradiente Dorado Metálico
+  background: linear-gradient(
+    to bottom, 
+    #cfc09f 0%, 
+    #ffecb3 30%, 
+    #a47e3c 60%, 
+    #6d4f18 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.5));
+}

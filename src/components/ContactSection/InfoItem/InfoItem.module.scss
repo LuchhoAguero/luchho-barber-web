@@ -1,0 +1,60 @@
+@import "/src/styles/main";
+
+.itemContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  color: $color-text-primary;
+
+  // --- Tablet & Mobile (Alineación centrada) ---
+  @media (max-width: 768px) {
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.iconCircle {
+  @include flex-center;
+  flex-shrink: 0; // Evita que se aplaste
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  background-color: rgba($color-accent, 0.1);
+  color: $color-accent;
+  font-size: 1.5rem;
+  border: 1px solid rgba($color-accent, 0.3);
+
+  // --- Mobile (Más pequeño) ---
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+.textContent {
+  .title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+  }
+
+  .textLine {
+    font-size: 0.95rem;
+    color: $color-text-secondary;
+    line-height: 1.4;
+
+    @media (max-width: 480px) {
+      font-size: 0.85rem;
+    }
+  }
+}
