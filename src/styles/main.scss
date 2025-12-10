@@ -12,7 +12,20 @@ body {
   overflow-x: hidden; /* Corta cualquier cosa que se salga de ancho */
   background-color: #0a0a0a; /* Por si acaso, que el fondo sea negro y no blanco */
 }
+/* Personalizar la barra de scroll (Webkit: Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Ancho delgado */
+}
 
+// ::-webkit-scrollbar-track {
+//   background: #0a0a0a; /* Fondo negro */
+// }
+
+::-webkit-scrollbar-thumb {
+  background-color: #333; /* Color de la barra gris oscuro */
+  border-radius: 10px; /* Bordes redondos */
+  border: 2px solid #0a0a0a; /* Espacio alrededor */
+}
 @import "./variables";
 @import "./mixins";
 // Aquí podrías agregar un reset CSS si quisieras en el futuro
