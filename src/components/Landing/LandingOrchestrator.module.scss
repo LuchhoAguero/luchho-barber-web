@@ -1,4 +1,4 @@
-@import '/src/styles/main';
+@import "/src/styles/main";
 
 .orchestratorContainer {
   width: 100%;
@@ -6,27 +6,40 @@
   height: 100dvh; // Fix para móviles modernos
   position: relative;
   overflow: hidden;
+  @media (max-width: 480px) {
+    // Permitimos que se deslice verticalmente
+    overflow-y: auto;
+    // Evitamos deslizamiento horizontal
+    overflow-x: hidden;
+    // Habilitamos el scroll suave nativo de iOS/Android
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .centerContent {
   @include flex-column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 10;
-  
+
   // Espaciado entre Título y Tarjeta
   gap: 1.5rem;
 
   // Ajuste Mobile
   @media (max-width: 480px) {
-    gap: 0.8rem;
-    padding-top: 20px;
+    // Usamos 'flex-start' y un padding top grande para asegurar
+    // que el título arranque bien arriba y no se corte
+    justify-content: flex-start;
+    padding-top: 38vh; // Empieza al 15% de la pantalla desde arriba
+    gap: 1rem;
   }
 }
 
@@ -64,14 +77,14 @@
 .goldText {
   // Gradiente Dorado Metálico
   background: linear-gradient(
-    to bottom, 
-    #cfc09f 0%, 
-    #ffecb3 30%, 
-    #a47e3c 60%, 
+    to bottom,
+    #cfc09f 0%,
+    #ffecb3 30%,
+    #a47e3c 60%,
     #6d4f18 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.5));
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.5));
 }

@@ -5,12 +5,49 @@
   align-items: flex-start;
   gap: 1.5rem;
   color: $color-text-primary;
+  text-decoration: none; // Quitar subrayado de links
+  transition: all 0.3s ease; // Animación suave
+  padding: 10px; // Un poco de aire para el click
+  border-radius: 10px;
 
-  // --- Tablet & Mobile (Alineación centrada) ---
+  // ESTADO INTERACTIVO (Solo si es link)
+  &.interactive {
+    cursor: pointer;
+    border: 1px solid transparent; // Prepara el borde
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05); // Fondo sutil al pasar mouse
+      transform: translateX(5px); // Se mueve un poquito a la derecha
+
+      .iconCircle {
+        background-color: $color-accent; // El círculo se llena de color
+        color: #000; // Icono negro
+        box-shadow: 0 0 15px rgba($color-accent, 0.6); // Brillo
+      }
+    }
+
+    // Feedback visual al tocar en celular
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
   @media (max-width: 768px) {
     align-items: center;
     gap: 1rem;
   }
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.linkIcon {
+  font-size: 0.8rem;
+  color: $color-accent;
+  opacity: 0.7;
 }
 
 .iconCircle {

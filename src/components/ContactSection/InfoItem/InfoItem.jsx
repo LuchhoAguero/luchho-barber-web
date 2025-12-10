@@ -1,22 +1,43 @@
 import React from "react";
 import styles from "./InfoItem.module.scss";
+// Importamos un icono de "link externo" pequeñito para mejorar UX
+import { FaExternalLinkAlt } from "react-icons/fa";
 
-// Recibe el icono, el título (ej: HORARIOS) y un array de líneas de texto
-const InfoItem = ({ icon, title, lines }) => {
-  return (
-    <div className={styles.itemContainer}>
+// Nuevo prop: 'link' (opcional)
+const InfoItem = ({ icon, title, lines, link }) => {
+  // Definimos el contenido interno para no repetirlo
+  const content = (
+    <>
       <div className={styles.iconCircle}>{icon}</div>
       <div className={styles.textContent}>
-        <h3 className={styles.title}>{title}</h3>
-        {/* Mapeamos las líneas de texto (útil para los horarios que son 2 líneas) */}
+        <div className={styles.titleWrapper}>
+          <h3 className={styles.title}>{title}</h3>
+          {/* Si es un link, mostramos una flechita visual sutil */}
+          {link && <FaExternalLinkAlt className={styles.linkIcon} />}
+        </div>
         {lines.map((line, index) => (
           <p key={index} className={styles.textLine}>
             {line}
           </p>
         ))}
       </div>
-    </div>
+    </>
   );
+
+  if (link) {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${styles.itemContainer} ${styles.interactive}`}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className={styles.itemContainer}>{content}</div>;
 };
 
 export default InfoItem;

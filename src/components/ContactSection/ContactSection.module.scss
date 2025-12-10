@@ -1,29 +1,28 @@
 @import "/src/styles/main";
 
 .contactContainer {
-  @include glass-effect; // Fondo transparente y blur
+  @include glass-effect;
   border-radius: $border-radius-lg;
-
-  // Dimensiones Desktop
   padding: 2rem 2.5rem;
   max-width: 900px;
   width: 90%;
-
-  // Sombra exterior para despegarlo del fondo
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease; // Animación suave al cambiar tamaño
 
-  // --- Tablet (Ajustar márgenes) ---
+  // --- Tablet ---
   @media (max-width: 1024px) {
     width: 85%;
     padding: 2rem;
   }
 
-  // --- Mobile ---
+  // --- MOBILE (Aquí ocurre la magia) ---
   @media (max-width: 480px) {
     width: 95%;
     padding: 1.5rem 1rem;
     border-radius: 20px;
-    margin-bottom: 20px; // Espacio para scroll
+    margin-bottom: 0; // Quitamos margen extra
+
+    // Si NO tiene la clase .open, limitamos el alto o padding si quieres
   }
 }
 
@@ -32,7 +31,7 @@
   margin-bottom: 2rem;
 
   @media (max-width: 480px) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; // Menos espacio en móvil
   }
 
   .mainTitle {
@@ -43,30 +42,36 @@
     margin-bottom: 0.5rem;
     line-height: 1.1;
 
-    // Gradiente simple para "TURNO AHORA"
     .highlight {
       display: block;
       @include text-gradient($color-text-primary, $color-accent);
     }
 
     @media (max-width: 480px) {
-      font-size: 1.5rem;
+      font-size: 1.4rem; // Un poco más chico
     }
   }
 
   .subtitle {
     color: $color-text-secondary;
     font-size: 0.95rem;
+
+    // Clase para ocultarlo en móvil cerrado
+    &.hiddenMobile {
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
   }
 }
 
 .ctaWrapper {
   @include flex-center;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem; // Margen normal escritorio
   position: relative;
 
-  // Efecto de brillo detrás del botón
   &::before {
+    /* ... (tu código del brillo anterior) ... */
     content: "";
     position: absolute;
     top: 50%;
@@ -78,30 +83,98 @@
     filter: blur(40px);
     z-index: 0;
   }
-
-  // El botón debe estar encima del brillo
   & > * {
     position: relative;
     z-index: 1;
+  }
+
+  // En móvil, si está cerrado, reducimos el margen inferior
+  @media (max-width: 480px) {
+    margin-bottom: 1rem;
+  }
+}
+
+// --- NUEVO: Botón Toggle (Flecha) ---
+.toggleBtn {
+  display: none; // Oculto en PC
+
+  // Solo visible en Mobile
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color-text-secondary;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: -10px;
+
+    .toggleText {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    // Animación pequeña en la flecha
+    svg {
+      animation: bounce 2s infinite;
+    }
+  }
+}
+
+// --- NUEVO: Contenedor Colapsable ---
+.collapsibleContent {
+  // En escritorio SIEMPRE se ve
+  display: block;
+  opacity: 1;
+  max-height: none;
+
+  // En móvil empezamos OCULTO
+  @media (max-width: 480px) {
+    max-height: 0; // Altura 0
+    opacity: 0;
+    overflow: hidden; // Lo que sobresale se esconde
+    transition: all 0.5s ease-in-out; // Animación de despliegue
+
+    // Cuando le agregamos la clase .showContent (al hacer click)
+    &.showContent {
+      max-height: 800px; // Un valor alto suficiente para que entre todo
+      opacity: 1;
+      margin-top: 1.5rem;
+    }
   }
 }
 
 .infoGrid {
   display: grid;
-  // Desktop: 2 Columnas
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 
-  // --- Tablet Portrait (Cambio a 1 columna) ---
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 0 1rem;
   }
 
-  // --- Mobile ---
   @media (max-width: 480px) {
-    gap: 1.2rem;
     padding: 0;
+  }
+}
+
+// Animación simple para la flecha
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
   }
 }
