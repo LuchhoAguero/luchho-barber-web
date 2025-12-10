@@ -31,7 +31,7 @@
   z-index: 10;
 
   // Espaciado entre Título y Tarjeta
-  gap: 2rem;
+  gap: 1.5rem;
 
   // Ajuste Mobile
   @media (max-width: 480px) {
@@ -75,6 +75,9 @@
     font-size: 2.2rem;
     letter-spacing: 2px;
     line-height: 1.1;
+    width: 100%;
+    word-break: break-word; /* Si es muy largo, que baje de renglón en vez de estirar la pantalla */
+    padding: 0 10px; /* Un poquito de aire a los costados */
   }
 }
 

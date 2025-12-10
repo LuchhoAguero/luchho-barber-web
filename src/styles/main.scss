@@ -1,3 +1,18 @@
+/* 1. EL RESET MAGICO: Esto arregla el desbordamiento lateral */
+* {
+  box-sizing: border-box; /* Clave: hace que padding no agrande los elementos */
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Aseguramos que el cuerpo no tenga scroll horizontal */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* Corta cualquier cosa que se salga de ancho */
+  background-color: #0a0a0a; /* Por si acaso, que el fondo sea negro y no blanco */
+}
+
 @import "./variables";
 @import "./mixins";
 // Aquí podrías agregar un reset CSS si quisieras en el futuro
