@@ -1,6 +1,7 @@
 @import "/src/styles/main";
 
 .contactContainer {
+  position: relative;
   @include glass-effect;
   border-radius: $border-radius-lg;
   padding: 2rem 2.5rem;
@@ -8,7 +9,7 @@
   width: 90%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   transition: all 0.4s ease; // Animación suave al cambiar tamaño
-
+  z-index: 1;
   // --- Tablet ---
   @media (max-width: 1024px) {
     width: 85%;
@@ -20,7 +21,7 @@
     width: 95%;
     padding: 1.5rem 1rem;
     border-radius: 20px;
-    margin-bottom: 0; // Quitamos margen extra
+    margin-bottom: 20px; // Quitamos margen extra
 
     // Si NO tiene la clase .open, limitamos el alto o padding si quieres
   }

@@ -31,14 +31,18 @@
   z-index: 10;
 
   // Espaciado entre Título y Tarjeta
-  gap: 1.5rem;
+  gap: 2rem;
 
   // Ajuste Mobile
   @media (max-width: 480px) {
-    // Usamos 'flex-start' y un padding top grande para asegurar
-    // que el título arranque bien arriba y no se corte
+    // Cambiamos a 'relative' para que el contenedor crezca con el contenido
+    position: relative;
+    height: auto; // La altura ya no es fija, se adapta
+    min-height: 100dvh; // Al menos ocupa toda la pantalla
+
     justify-content: flex-start;
-    padding-top: 38vh; // Empieza al 15% de la pantalla desde arriba
+    padding-top: 10vh; // Espacio arriba para el título
+    padding-bottom: 50px; // Espacio abajo para que lo último no quede pegado al borde
     gap: 1rem;
   }
 }
