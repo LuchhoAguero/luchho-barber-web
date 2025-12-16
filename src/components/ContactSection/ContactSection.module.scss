@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@use "/src/styles/main" as *;
 
 .contactContainer {
   position: relative;
@@ -19,9 +19,8 @@
   // --- MOBILE (Aquí ocurre la magia) ---
   @media (max-width: 480px) {
     width: 95%;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem 1rem;
     border-radius: 20px;
-    margin-bottom: 20px; // Quitamos margen extra
 
     // Si NO tiene la clase .open, limitamos el alto o padding si quieres
   }
@@ -102,17 +101,17 @@
   // Solo visible en Mobile
   @media (max-width: 480px) {
     display: flex;
-    flex-direction: column;
+
     align-items: center;
     justify-content: center;
     color: $color-text-secondary;
     cursor: pointer;
     padding: 10px;
-    margin-top: -10px;
+    gap: 10px;
 
     .toggleText {
       font-size: 0.8rem;
-      margin-bottom: 5px;
+
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -142,7 +141,6 @@
     &.showContent {
       max-height: 800px; // Un valor alto suficiente para que entre todo
       opacity: 1;
-      margin-top: 1.5rem;
     }
   }
 }

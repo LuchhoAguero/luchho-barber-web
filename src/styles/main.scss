@@ -1,3 +1,5 @@
+@forward "./variables";
+@forward "./mixins";
 /* 1. EL RESET MAGICO: Esto arregla el desbordamiento lateral */
 * {
   box-sizing: border-box; /* Clave: hace que padding no agrande los elementos */
@@ -14,7 +16,7 @@ body {
 }
 /* Personalizar la barra de scroll (Webkit: Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 8px; /* Ancho delgado */
+  display: none; /* Ancho delgado */
 }
 
 // ::-webkit-scrollbar-track {
@@ -26,6 +28,5 @@ body {
   border-radius: 10px; /* Bordes redondos */
   border: 2px solid #0a0a0a; /* Espacio alrededor */
 }
-@import "./variables";
-@import "./mixins";
+
 // Aquí podrías agregar un reset CSS si quisieras en el futuro

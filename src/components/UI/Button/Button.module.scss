@@ -1,4 +1,4 @@
-@import "/src/styles/main";
+@use "/src/styles/main" as *;
 
 .uiButton {
   @include flex-center;

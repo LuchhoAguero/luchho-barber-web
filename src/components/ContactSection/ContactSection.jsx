@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./ContactSection.module.scss";
 import Button from "../UI/Button/Button";
 import InfoItem from "./InfoItem/InfoItem";
+
 // Agregamos FaInstagram
 import {
   FaWhatsapp,
@@ -12,15 +13,16 @@ import {
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
+import { cleanPhone } from "../../utils/phone";
 
 const ContactSection = ({ phoneNumber }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
     const mensaje = "Hola! Quiero reservar un turno.";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      mensaje
-    )}`;
+    const url = `https://wa.me/${cleanPhone(
+      phoneNumber
+    )}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
   };
 
@@ -40,9 +42,7 @@ const ContactSection = ({ phoneNumber }) => {
         <h2 className={styles.mainTitle}>
           RESERVA TU <span className={styles.highlight}>TURNO AHORA</span>
         </h2>
-        <p
-          className={`${styles.subtitle} ${!isOpen ? styles.hiddenMobile : ""}`}
-        >
+        <p className={`${styles.subtitle} ${!isOpen ? styles.open : ""}`}>
           Contactanos y asegura tu lugar
         </p>
       </div>
@@ -70,7 +70,10 @@ const ContactSection = ({ phoneNumber }) => {
           <InfoItem
             icon={<FaClock />}
             title="HORARIOS"
-            lines={["Lun-Jue: Consultar", "Vier-Sab: 9:00 - 21:00"]}
+            lines={[
+              "Lunes - Jueves: Consultar",
+              "Viernes - Sabádo: 9:00 - 21:00",
+            ]}
           />
 
           {/* 2. UBICACIÓN (¡Ahora con LINK al mapa!) */}
@@ -78,22 +81,21 @@ const ContactSection = ({ phoneNumber }) => {
             icon={<FaMapMarkerAlt />}
             title="UBICACIÓN"
             lines={["Calle Irrazabal s/n", "Alto Verde, Mendoza"]}
-            link={mapLink} // <--- ESTO LO HACE CLICKEABLE
+            link={mapLink}
           />
 
-          {/* 3. TELÉFONO (Llama al tocar) */}
           <InfoItem
             icon={<FaPhoneAlt />}
             title="LLAMAR"
-            lines={[`+${phoneNumber}`]}
-            link={`tel:+${phoneNumber}`} // Protocolo para llamar
+            lines={[phoneNumber]}
+            link={`tel:+${cleanPhone(phoneNumber)}`}
           />
 
           {/* 4. INSTAGRAM (Reemplazamos Email) */}
           <InfoItem
             icon={<FaInstagram />}
             title="INSTAGRAM"
-            lines={["@luchhobarber", "Seguinos para ver cortes"]}
+            lines={["@luchhobarber", "Encontrá tu próximo look"]}
             link={instagramLink} // Link a tu perfil
           />
         </div>

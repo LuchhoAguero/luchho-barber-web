@@ -13,7 +13,7 @@ const LandingPage = () => {
   const config = {
     video: videoBarberia,
     nombre: "Luchho Barber",
-    telefono: "542634621194",
+    telefono: "+54 263-4621194",
   };
 
   return (
