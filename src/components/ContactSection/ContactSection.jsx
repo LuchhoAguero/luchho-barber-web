@@ -80,7 +80,10 @@ const ContactSection = ({ phoneNumber }) => {
           <InfoItem
             icon={<FaMapMarkerAlt />}
             title="UBICACIÓN"
-            lines={["Calle Irrazabal s/n", "Alto Verde, Mendoza"]}
+            lines={[
+              "Calle Irrazabal s/n (200 m de Ruta 50)",
+              "Alto Verde, Mendoza",
+            ]}
             link={mapLink}
           />
 
