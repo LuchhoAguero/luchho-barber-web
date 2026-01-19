@@ -40,7 +40,7 @@ El objetivo fue crear una experiencia de usuario fluida que reduzca la friccion 
 
 ## Autor
 
-**[Tu Nombre]** - _Dueno & Desarrollador Fullstack_
+**[Luciano Agüero]** - _Dueno & Desarrollador Fullstack_
 
 - [https://www.linkedin.com/in/luciano-ag%C3%BCero-220828146/]
 - [https://www.instagram.com/luchhobarber]
