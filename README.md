@@ -42,9 +42,7 @@ El objetivo fue crear una experiencia de usuario fluida que reduzca la friccion 
 
 **[Tu Nombre]** - _Dueno & Desarrollador Fullstack_
 
-- [LinkedIn](Pegar tu Link de LinkedIn)
-- [Instagram](Pegar Link de la Barberia)
-
----
+- [https://www.linkedin.com/in/luciano-ag%C3%BCero-220828146/]
+- [https://www.instagram.com/luchhobarber]
 
 _Desarrollado como proyecto profesional y caso de estudio para la carrera de Analista de Sistemas._
