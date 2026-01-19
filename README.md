@@ -1,16 +1,50 @@
-# React + Vite
+# Luchho Barber - Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> WebApp moderna para gestion de identidad y reservas de turnos, desarrollada con React y enfoque Mobile First.
 
-Currently, two official plugins are available:
+![Preview del Proyecto](public/thumbnail.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Descripcion
 
-## React Compiler
+Este proyecto nace de una necesidad real de negocio: digitalizar la atencion al cliente de **Luchho Barber**.
+El objetivo fue crear una experiencia de usuario fluida que reduzca la friccion al reservar turnos, reemplazando la gestion manual por WhatsApp con una interfaz interactiva y de alta performance.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack Tecnologico
 
-## Expanding the ESLint configuration
+- **Core:** React.js + Vite (Build optimizado).
+- **Estilos:** SASS / SCSS Modules (Arquitectura BEM).
+- **Deployment:** Vercel (CI/CD).
+- **Integraciones:** WhatsApp API, Google Maps.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Funcionalidades Clave
+
+- **Mobile First UX:** Diseno pensado priorizando la experiencia en celulares.
+- **Performance:** Carga diferida de recursos y optimizacion de assets (Score 95+ en Lighthouse).
+- **UI Dinamica:** Animaciones CSS, Glassmorphism y Video Background adaptativo.
+- **Clean Code:** Arquitectura escalable separando logica de negocio (Orquestadores) de componentes visuales.
+
+## Instalacion y Uso
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/TU_USUARIO/luchho-barber.git
+   ```
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+3. Correr servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+## Autor
+
+**[Tu Nombre]** - _Dueno & Desarrollador Fullstack_
+
+- [LinkedIn](Pegar tu Link de LinkedIn)
+- [Instagram](Pegar Link de la Barberia)
+
+---
+
+_Desarrollado como proyecto profesional y caso de estudio para la carrera de Analista de Sistemas._

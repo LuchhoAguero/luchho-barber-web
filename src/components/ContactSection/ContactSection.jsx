@@ -23,11 +23,11 @@ const ContactSection = ({ phoneNumber }) => {
     const url = `https://wa.me/${cleanPhone(
       phoneNumber
     )}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const toggleOpen = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   // DATOS REALES (¡Cámbialos por los tuyos!)
@@ -35,14 +35,12 @@ const ContactSection = ({ phoneNumber }) => {
   const instagramLink = "https://instagram.com/luchhobarber";
 
   return (
-    <section
-      className={`${styles.contactContainer} ${isOpen ? styles.open : ""}`}
-    >
+    <section className={styles.contactContainer}>
       <div className={styles.header}>
         <h2 className={styles.mainTitle}>
           RESERVA TU <span className={styles.highlight}>TURNO AHORA</span>
         </h2>
-        <p className={`${styles.subtitle} ${!isOpen ? styles.open : ""}`}>
+        <p className={`${styles.subtitle} ${!isOpen ? styles.hiddenMobile : ""}`}>
           Contactanos y asegura tu lugar
         </p>
       </div>
@@ -53,14 +51,21 @@ const ContactSection = ({ phoneNumber }) => {
         </Button>
       </div>
 
-      <div className={styles.toggleBtn} onClick={toggleOpen}>
+      <button
+        type="button"
+        className={styles.toggleBtn}
+        onClick={toggleOpen}
+        aria-expanded={isOpen}
+        aria-controls="contact-collapsible"
+      >
         <span className={styles.toggleText}>
           {isOpen ? "Ver menos" : "Ver horarios, ubicación y redes"}
         </span>
         {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-      </div>
+      </button>
 
       <div
+        id="contact-collapsible"
         className={`${styles.collapsibleContent} ${
           isOpen ? styles.showContent : ""
         }`}
